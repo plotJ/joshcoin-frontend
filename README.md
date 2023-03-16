@@ -1,0 +1,1 @@
+# joshcoin-frontend
