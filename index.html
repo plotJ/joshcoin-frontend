@@ -70,7 +70,7 @@
 	 <button id="addToMetaMaskButton">Add JoshCoin to MetaMask</button>
   </div>
   <script>
-	  const tokenSymbol = 'JoshCoin';
+	 const tokenSymbol = 'JoshCoin';
 const tokenDecimals = 18;
 
 async function addToMetaMask() {
@@ -101,7 +101,13 @@ async function addToMetaMask() {
       alert('Please install MetaMask or another Ethereum wallet.');
     }
   } catch (error) {
-    console.error('An error occurred while adding Josh
+    console.error('An error occurred while adding JoshCoin to MetaMask:', error);
+    alert('An error occurred while adding JoshCoin to MetaMask.');
+  }
+}
+
+document.getElementById('addToMetaMaskButton').addEventListener('click', addToMetaMask);
+
 
     const contractABI = [
 	{
