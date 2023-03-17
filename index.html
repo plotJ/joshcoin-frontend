@@ -366,7 +366,8 @@
       await window.ethereum.request({ method: 'eth_requestAccounts' });
       const accounts = await web3.eth.getAccounts();
       console.log('Claiming tokens for account:', accounts[0]);
-	await contract.methods.claimTokens().send({ from: accounts[0] });
+	const MAX_CLAIM_AMOUNT = 100 * 10**18;
+	await contract.methods.claimTokens(MAX_CLAIM_AMOUNT).send({ from: accounts[0] });
       console.log('Tokens claimed successfully!');
       alert('Tokens claimed successfully!');
     } else {
