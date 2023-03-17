@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JoshCoin</title>
+  <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+</head>
+<body>
+  <h1>JoshCoin</h1>
+  <button id="claimButton">Claim your JoshCoin</button>
+  <script>
+    const contractABI = /* Paste your contract ABI JSON here */;
+    const contractAddress = "/* Paste your contract address here */";
+    const infuraUrl = "https://rinkeby.infura.io/v3/YOUR_INFURA_PROJECT_ID";
+
+    let web3 = new Web3(window.ethereum || infuraUrl);
+    let contract = new web3.eth.Contract(contractABI, contractAddress);
+    let claimButton = document.getElementById("claimButton");
+
+    async function claimTokens() {
+      try {
+        if (window.ethereum) {
+          await window.ethereum.request({ method: 'eth_requestAccounts' });
+          const accounts = await web3.eth.getAccounts();
+          await contract.methods.claimTokens().send({ from: accounts[0] });
+          alert('Tokens claimed successfully!');
+        } else {
+          alert('Please install MetaMask or another Ethereum wallet.');
+        }
+      } catch (error) {
+        console.error(error);
+        alert('An error occurred while claiming tokens.');
+      }
+    }
+
+    claimButton.addEventListener("click", claimTokens);
+  </script>
+</body>
+</html>
