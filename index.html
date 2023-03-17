@@ -4,11 +4,68 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>JoshCoin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://cdn.jsdelivr.net/npm/web3@1.5.3/dist/web3.min.js"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      margin-bottom: 30px;
+      text-align: center;
+      font-size: 36px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    p {
+      font-size: 18px;
+      line-height: 1.5;
+      color: #666;
+    }
+
+    button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      font-size: 18px;
+      font-weight: bold;
+      color: white;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    button:focus {
+      outline: none;
+    }
+  </style>
 </head>
 <body>
-  <h1>JoshCoin</h1>
-  <button id="claimButton">Claim your JoshCoin</button>
+  <div class="container">
+    <h1>JoshCoin Airdrop</h1>
+    <p>
+      Welcome to the JoshCoin web3 portfolio project! This simple project demonstrates the process of airdropping coins on the Polygon Network. JoshCoin has a fixed supply, and each user can only claim tokens once. Get your share of JoshCoin now!
+    </p>
+    <button id="claimButton">Claim your JoshCoin</button>
+  </div>
   <script>
     const contractABI = [
 	{
