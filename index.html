@@ -366,20 +366,25 @@
     let claimButton = document.getElementById("claimButton");
 
     async function claimTokens() {
-      try {
-        if (window.ethereum) {
-          await window.ethereum.request({ method: 'eth_requestAccounts' });
-          const accounts = await web3.eth.getAccounts();
-          await contract.methods.claimTokens().send({ from: accounts[0] });
-          alert('Tokens claimed successfully!');
-        } else {
-          alert('Please install MetaMask or another Ethereum wallet.');
-        }
-      } catch (error) {
-        console.error(error);
-        alert('An error occurred while claiming tokens.');
-      }
+  try {
+    if (window.ethereum) {
+      console.log('Requesting account access...');
+      await window.ethereum.request({ method: 'eth_requestAccounts' });
+      const accounts = await web3.eth.getAccounts();
+      console.log('Claiming tokens for account:', accounts[0]);
+      await contract.methods.claimTokens().send({ from: accounts[0] });
+      console.log('Tokens claimed successfully!');
+      alert('Tokens claimed successfully!');
+    } else {
+      console.error('Ethereum wallet not detected.');
+      alert('Please install MetaMask or another Ethereum wallet.');
     }
+  } catch (error) {
+    console.error('An error occurred while claiming tokens:', error);
+    alert('An error occurred while claiming tokens.');
+  }
+}
+
 
     claimButton.addEventListener("click", claimTokens);
   </script>
