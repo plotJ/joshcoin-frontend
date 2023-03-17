@@ -372,7 +372,7 @@
       await window.ethereum.request({ method: 'eth_requestAccounts' });
       const accounts = await web3.eth.getAccounts();
       console.log('Claiming tokens for account:', accounts[0]);
-      await contract.methods.claimTokens().send({ from: accounts[0] });
+	await contract.methods.claimTokens().send({ from: accounts[0] });
       console.log('Tokens claimed successfully!');
       alert('Tokens claimed successfully!');
     } else {
